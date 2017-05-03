@@ -1,0 +1,5 @@
+[user]
+	email = miguelvilag@gmail.com
+	name = Miguel Vilá
+[core]
+	excludesfile = /home/mglvl/.gitignore_global
