@@ -403,6 +403,25 @@ there's a region, all lines that region covers will be duplicated."
 
   (cua-mode 1) ;; Para shortcuts familiares
 
+  ;; >>>>>>>>>>>>>
+  ;; ispell config
+  ;; requires having installed the `aspell-es` package
+
+  (let ((langs '("castellano" "american")))
+    (setq lang-ring (make-ring (length langs)))
+    (dolist (elem langs) (ring-insert lang-ring elem)))
+
+  (defun cycle-ispell-languages ()
+    (interactive)
+    (let ((lang (ring-ref lang-ring -1)))
+      (ring-insert lang-ring lang)
+      (ispell-change-dictionary lang)))
+
+  (global-set-key [f6] 'cycle-ispell-languages)
+
+  ;; ispell config end
+  ;; >>>>>>>>>>>>>>>>>
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
